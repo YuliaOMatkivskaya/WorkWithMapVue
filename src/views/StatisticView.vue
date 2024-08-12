@@ -23,34 +23,18 @@ const  series= [
       ]
 
 let countElemType=0
-
 const dataSortableByStatus=[]
 let selectedData=[]
 
+//собираем в нужном формате объекты данных для графика
 typeState.forEach((element,index) => {
   chartOptions.xaxis.categories[index]=element.name
-  dataSortableByStatus[index]=[]
   selectedData=data.filter((el)=>el.status_id===element.id)
   dataSortableByStatus[index]=selectedData
   countElemType=selectedData.length
   series[0].data[index]=countElemType??0
 
-});   
-
-console.log('dataSortableByStatus',dataSortableByStatus)
-
-let obj = {
-  "Me": 11,
-  "Children": {
-    "Mike": {
-      "Tom": 12
-    },
-    "Sister": {
-      "Mary": 15
-    }
-  }
-};
-
+});  
 
 //преобразование вложенностей для сохранения в XLSX
 const MergeForSaveXLSX=(data)=> {
@@ -103,7 +87,7 @@ const clickHandler=(event, chartContext, config)=>{
       
       <div class="center-element">
             <apexchart id="vuechart-exampl"
-      width="1250"
+      width="1300"
       height="450"
       type="bar"
       :options=chartOptions
@@ -123,9 +107,8 @@ const clickHandler=(event, chartContext, config)=>{
   .statistic {
     min-height: 75vh;
     display: flex;
-  align-items: center;
-  justify-content: center;
-
+    align-items: center;
+    justify-content: center;
   }
 
 </style>

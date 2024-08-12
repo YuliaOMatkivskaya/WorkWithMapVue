@@ -45,8 +45,7 @@ a {
   }
 }
 
-h1{
-  margin:0;
-  padding:0;
+.router-link-exact-active {
+  text-decoration: underline ;
 }
 </style>
